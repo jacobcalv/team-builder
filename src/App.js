@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form.js'
 import TeamCard from './components/TeamCard'
@@ -24,7 +23,7 @@ function App() {
   ])
   return (
     <>
-    <Form/>
+    <Form teamMember={teamMember} setTeamMember={setTeamMember}/>
     <TeamCard teamMember={teamMember}/>
     </>
   );

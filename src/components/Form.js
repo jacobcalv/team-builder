@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 
-const Form = () => {
+const Form = (props) => {
     const initialState = {
         name: '',
         email: '',
@@ -15,7 +15,13 @@ const Form = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(newTeamMember)
+        if(!newTeamMember.name || !newTeamMember.email || !newTeamMember.role){
+            alert('All Forms Must Be Filled Out')
+        } else{
+            props.setTeamMember([
+                newTeamMember, ...props.teamMember 
+            ]) 
+        }
         resetForm();
     }
 
