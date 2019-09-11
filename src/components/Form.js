@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 
 
 const Form = () => {
-    const [newTeamMember, setNewTeamMember]  = useState({
+    const initialState = {
         name: '',
         email: '',
         role: ''
-    })
-    
+    }
+    const [newTeamMember, setNewTeamMember]  = useState(initialState)
+
     const handleChange = (event) => {
         setNewTeamMember({ ...newTeamMember, [event.target.name]: event.target.value})
     };
@@ -15,8 +16,12 @@ const Form = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(newTeamMember)
+        resetForm();
     }
 
+    const resetForm = () => {
+        setNewTeamMember(initialState)
+    }
 
     return(
         <form onSubmit={handleSubmit}>
@@ -24,6 +29,7 @@ const Form = () => {
             <input 
                 name='name'
                 type='text'
+                value={newTeamMember.name}
                 onChange={handleChange}
                 placeholder='Enter Name Here'
             />
@@ -31,6 +37,7 @@ const Form = () => {
             <input 
                 name='email'
                 type='text'
+                value={newTeamMember.email}
                 onChange={handleChange}
                 placeholder='Enter Email Here'
             />
@@ -38,6 +45,7 @@ const Form = () => {
             <input 
                 name='role'
                 type='text'
+                value={newTeamMember.role}
                 onChange={handleChange}
                 placeholder='Enter Role Here'
             />
