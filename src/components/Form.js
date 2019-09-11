@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import '../App.css';
 
 const Form = (props) => {
     const initialState = {
@@ -30,7 +30,7 @@ const Form = (props) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleSubmit}>
             <label>Name: </label>
             <input 
                 name='name'
@@ -55,7 +55,7 @@ const Form = (props) => {
                 onChange={handleChange}
                 placeholder='Enter Role Here'
             />
-            <button type='submit'>Submit</button>
+            <button className='submit' type='submit'>Submit</button>
         </form>
     )
 };
